@@ -4,12 +4,14 @@ import {BsFillSunFill} from "react-icons/bs";
 function Navbar() {
   const [icon, setIcon] = useState(false)
   function darkMode() {
-    document.documentElement.classList.remove('dark')
+    
+    document.documentElement.classList.add('dark')
+
     setIcon(!icon)
   }
 
   function lightMode() {
-    document.documentElement.classList.add('dark')
+    document.documentElement.classList.remove('dark')
     setIcon(!icon)
   }
   return(

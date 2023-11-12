@@ -7,12 +7,14 @@ import { UilAirplay } from '@iconscout/react-unicons'
 import { UilFilePlus } from '@iconscout/react-unicons'
 import { UilAngleDown } from '@iconscout/react-unicons'
 import ModalEditor from "./components/ModalEditor";
+import FolderEditor from './components/FolderEditor';
 function MainPage() {
 
     const [openModal, setOpenModal] = useState(false);
+    const [openModalFolder, setOpenModalFolder] = useState(false);
     return (
         <div className=" w-full h-screen px-10 py-14 space-y-10 flex flex-col justify-center items-center bg-white dark:bg-black dark:text-white ">
-            
+
             {/* Heading */}
             <h2 className=" p-3 text-2xl font-bold w-full text-left dark:text-white dark:ring-1 ring-slate-50 rounded">Documentation center - admin</h2>
 
@@ -30,10 +32,13 @@ function MainPage() {
 
                     {/* Header and Add */}
                     <div className="bg-[#EDEDED] dark:bg-none dark:text-black flex justify-between items-center px-5 py-2">
-                        <p className="">Content Groups</p>
+                        <p>Content Groups</p>
 
                         {/* Will be used to add folders */}
-                        <div className=" bg-white px-1 rounded-sm"><UilPlusSquare className="cursor-pointer" width={20} /></div>
+                        <div className=" bg-white px-1 rounded-sm">
+                            <UilPlusSquare onClick={() => setOpenModalFolder(true)} className="cursor-pointer" width={20} />
+                            <FolderEditor openModalFolder={openModalFolder} setOpenModalFolder={setOpenModalFolder} />
+                        </div>
                     </div>
 
                     {/* Root Content */}
