@@ -1,10 +1,26 @@
 import React, { useState, useEffect } from "react";
-
+import {BsMoonFill} from "react-icons/bs";
+import {BsFillSunFill} from "react-icons/bs";
 function Navbar() {
-  
-  return <div className=" border-2 border-red-500 dark:to-blue-500 rounded-md w-fit p-2 cursor-pointer">
-    <button onClick={handleThemeSwitch}>Clcik Me</button>
-  </div>;
+  const [icon, setIcon] = useState(false)
+  function darkMode() {
+    document.documentElement.classList.remove('dark')
+    setIcon(!icon)
+  }
+
+  function lightMode() {
+    document.documentElement.classList.add('dark')
+    setIcon(!icon)
+  }
+  return(
+    <div className=" bg-white dark:bg-black flex justify-end px-10 py-6">
+      {/* Toggle Button */}
+      {icon ? 
+      <div className=" text-indigo-400 cursor-pointer"><BsMoonFill className="" size={30} onClick={lightMode} /> </div>
+       : 
+       <div> <BsFillSunFill className=" text-indigo-400 cursor-pointer" size={30} onClick={darkMode} /> </div>}
+    </div>
+  )
 }
 
 export default Navbar;
